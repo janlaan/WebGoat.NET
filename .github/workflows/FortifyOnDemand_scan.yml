@@ -65,8 +65,12 @@ jobs:
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
       - name: Download Fortify ScanCentral Client
         uses: fortify/gha-setup-scancentral-client@v2
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1
+        with:
+          vs-version: 16.5
       - name: Package Code + Dependencies
-        run: scancentral package -bt none -o package.zip
+        run: scancentral package -bt msbuild -o package.zip
       - name: Show package contents
         run: unzip -v package.zip
         
