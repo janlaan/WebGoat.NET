@@ -32,7 +32,7 @@ jobs:
        - name: Save results
          uses: actions/upload-artifact@master
          with:
-            name: ./gh-fortify-sast.sarif
+            name: gh-fortify-sast.sarif
             path: ".sigrid"
             retention-days: 7
             if-no-files-found: ignore
