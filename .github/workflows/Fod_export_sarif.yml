@@ -24,13 +24,14 @@ jobs:
           fod_user: ${{ secrets.FOD_USER }}
           fod_password: ${{ secrets.FOD_PAT }}
           fod_release_id: ${{ secrets.FOD_RELEASE_ID }}
-       - name: Save results
-         uses: actions/upload-artifact@master
-         with:
-            name: gh-fortify-sast.sarif
-            path: ".sigrid"
-            retention-days: 7
-            if-no-files-found: ignore
+       - run: "mkdir -p .sigrid && mv ./gh-fortify-sast.sarif .sigrid"
+       #- name: Save results
+       #  uses: actions/upload-artifact@master
+       #  with:
+       #     name: gh-fortify-sast.sarif
+       #     path: ".sigrid"
+       #     retention-days: 7
+       #     if-no-files-found: ignore
        - name: Display structure of .sigrid files
          run: ls -R
          working-directory: .sigrid
