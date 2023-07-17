@@ -31,6 +31,9 @@ jobs:
             path: ".sigrid"
             retention-days: 7
             if-no-files-found: ignore
+       - name: Display structure of .sigrid files
+         run: ls -R
+         working-directory: .sigrid
        - name: Download Sigrid CI
          run: "git clone https://github.com/Software-Improvement-Group/sigridci.git sigridci"
        - name: "Run Sigrid CI to upload" 
