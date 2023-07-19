@@ -20,7 +20,7 @@ jobs:
        - name: Export Results from FoD
          uses: fortify/gha-export-vulnerabilities@v1
          with:
-          export_config: ${{github.workspace}}/.sigrid/Sigrid_Fortify_Export.yml
+          export_config: ${{github.workspace}}/.sigrid/Sigrid_Fortify_export.yml
           fod_base_url: ${{ env.FOD_BASE_URL }}
           fod_tenant: ${{ secrets.FOD_TENANT }}
           fod_user: ${{ secrets.FOD_USER }}
