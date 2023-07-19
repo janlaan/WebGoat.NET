@@ -40,10 +40,12 @@ json.github.sast.format:
   vulnerabilityMappers:
     rules.fields:
       id: $[vuln.id+'']
+      name: $[vuln.category]
       shortDescription.text: $[vuln.category]
       fullDescription.text: $[#htmlToText(vuln.details?.summary)]
       help:
         text: $[#htmlToText(vuln.details?.explanation)+'\n\n'+#htmlToText(vuln.recommendations?.recommendations)+"\n\nFor more information, see "+vuln.deepLink]
+      helpUri: $[vuln.deepLink]
       properties:
         tags: $[vuln.cwe?.split(",")]
         precision: $[(vuln.severityString matches "(Critical|Medium)") ? "high":"low" ]
@@ -51,7 +53,7 @@ json.github.sast.format:
     result.fields:
       ruleId: $[vuln.id+'']
       message: 
-        text: $[#htmlToText(vuln.details?.summary)]
+        text: $[vuln.category]
       level: $[(vuln.severityString matches "(Critical|High)") ? "warning":"note" ]
       properties:
         tags: $[vuln.cwe?.split(",")]
