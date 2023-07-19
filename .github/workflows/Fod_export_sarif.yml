@@ -1,46 +1,36 @@
-name: Import FoD SAST Results into Sigrid
+name: Import Fortify On Demand SAST Results into Sigrid
 on: 
  workflow_dispatch:
  push:
   tags:
    - '*'
-   
+
+env:
+  FOD_BASE_URL: "https://emea.fortify.com/"
+
 jobs:                                                  
   Export-FoD-To-repo:
     runs-on: ubuntu-latest
     permissions:
         actions: read
         contents: write
-        security-events: write
     steps:
        - uses: actions/checkout@v3
-       # Pull SAST issues from Fortify on Demand and generate GitHub-optimized SARIF output
+       # Pull SAST issues from Fortify on Demand and generate Sigrid-optimized SARIF output
        - name: Export Results from FoD
          uses: fortify/gha-export-vulnerabilities@v1
          with:
-          export_config: ${{github.workspace}}/.sigrid/MyCustomExportConfig_FOD_Export.yml
-          fod_base_url: "https://emea.fortify.com/"
+          export_config: ${{github.workspace}}/.sigrid/Sigrid_Fortify_Export.yml
+          fod_base_url: ${{ env.FOD_BASE_URL }}
           fod_tenant: ${{ secrets.FOD_TENANT }}
           fod_user: ${{ secrets.FOD_USER }}
           fod_password: ${{ secrets.FOD_PAT }}
           fod_release_id: ${{ secrets.FOD_RELEASE_ID }}
        - run: "mkdir -p .sigrid && mv ./fortify-sast.sarif .sigrid"
-       #- name: Save results
-       #  uses: actions/upload-artifact@master
-       #  with:
-       #     name: gh-fortify-sast.sarif
-       #     path: ".sigrid"
-       #     retention-days: 7
-       #     if-no-files-found: ignore
-       - name: Display structure of .sigrid files
+       - name: Display contents of .sigrid folder
          run: ls -R
          working-directory: .sigrid
        - name: Commit Fortify export to repository
-#         uses: stefanzweifel/git-auto-commit-action@v4
-#         with: 
-#           commit_message: "Automated fortify Sigrid export"
-#           file_pattern: '.sigrid/*'
-#           commit_author: 'Fortify export <github-actions[bot]@users.noreply.github.com>'
          run: |
           git config --global user.name 'Fortify export'
           git add .sigrid/fortify-sast.sarif
@@ -48,7 +38,7 @@ jobs:
           git push
        - name: Download Sigrid CI
          run: "git clone https://github.com/Software-Improvement-Group/sigridci.git sigridci"
-       - name: "Run Sigrid CI to upload" 
+       - name: Run Sigrid CI to upload code
          env:
            SIGRID_CI_TOKEN: "${{ secrets.SIGRID_CI_TOKEN }}"
          run: "./sigridci/sigridci/sigridci.py --customer sigdev --system webgoat-net --source . --publish"
