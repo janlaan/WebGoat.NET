@@ -24,7 +24,7 @@ jobs:
           fod_user: ${{ secrets.FOD_USER }}
           fod_password: ${{ secrets.FOD_PAT }}
           fod_release_id: ${{ secrets.FOD_RELEASE_ID }}
-       - run: "mkdir -p .sigrid && mv ./gh-fortify-sast.sarif .sigrid"
+       - run: "mkdir -p .sigrid && mv ./fortify-sast.sarif .sigrid"
        #- name: Save results
        #  uses: actions/upload-artifact@master
        #  with:
