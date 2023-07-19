@@ -4,7 +4,9 @@ on:
  push:
   tags:
    - '*'
-      
+permissions:
+  contents: write
+  
 jobs:                                                  
   Export-FoD-To-repo:
     runs-on: ubuntu-latest
