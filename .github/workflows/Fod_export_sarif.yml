@@ -4,15 +4,13 @@ on:
  push:
   tags:
    - '*'
-permissions:
-  contents: write
-  
+   
 jobs:                                                  
   Export-FoD-To-repo:
     runs-on: ubuntu-latest
     permissions:
         actions: read
-        contents: read
+        contents: write
         security-events: write
     steps:
        - uses: actions/checkout@v3
@@ -38,16 +36,16 @@ jobs:
          run: ls -R
          working-directory: .sigrid
        - name: Commit Fortify export to repository
-         uses: stefanzweifel/git-auto-commit-action@v4
-         with: 
-           commit_message: "Automated fortify Sigrid export"
-           file_pattern: '.sigrid/*'
-           commit_author: 'Fortify export <github-actions[bot]@users.noreply.github.com>'
-#         run: |
-#          git config --global user.name 'Fortify export'
-#          git add .sigrid/fortify-sast.sarif
-#          git commit -m "Automated fortify Sigrid export"
-#          git push
+#         uses: stefanzweifel/git-auto-commit-action@v4
+#         with: 
+#           commit_message: "Automated fortify Sigrid export"
+#           file_pattern: '.sigrid/*'
+#           commit_author: 'Fortify export <github-actions[bot]@users.noreply.github.com>'
+         run: |
+          git config --global user.name 'Fortify export'
+          git add .sigrid/fortify-sast.sarif
+          git commit -m "Automated fortify Sigrid export"
+          git push
        - name: Download Sigrid CI
          run: "git clone https://github.com/Software-Improvement-Group/sigridci.git sigridci"
        - name: "Run Sigrid CI to upload" 
