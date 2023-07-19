@@ -35,6 +35,11 @@ jobs:
        - name: Display structure of .sigrid files
          run: ls -R
          working-directory: .sigrid
+       - name: Commit Fortify export to repository
+         run: |
+          git config --global user.name 'Fortify export'
+          git commit -am "Automated fortify Sigrid export"
+          git push
        - name: Download Sigrid CI
          run: "git clone https://github.com/Software-Improvement-Group/sigridci.git sigridci"
        - name: "Run Sigrid CI to upload" 
