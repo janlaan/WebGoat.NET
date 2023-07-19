@@ -42,7 +42,7 @@ jobs:
          with: 
            commit_message: "Automated fortify Sigrid export"
            file_pattern: '.sigrid/*'
-           commit_author: 'Fortify export'
+           commit_author: 'Fortify export <github-actions[bot]@users.noreply.github.com>'
 #         run: |
 #          git config --global user.name 'Fortify export'
 #          git add .sigrid/fortify-sast.sarif
