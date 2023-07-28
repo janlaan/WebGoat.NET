@@ -39,7 +39,7 @@ json.github.sast.format:
         results: $[#check(vulnerabilityMappers.result.get().size()>1000, "GitHub does not support importing more than 1000 vulnerabilities. Please clean the scan results or update vulnerability search criteria.")?vulnerabilityMappers.result.get():{}]
   vulnerabilityMappers:
     rules.fields:
-      id: $[vuln.id+'']
+      id: $[vuln.checkId+'']
       name: $[vuln.category]
       shortDescription.text: $[vuln.category]
       fullDescription.text: $[#htmlToText(vuln.details?.summary)]
@@ -51,7 +51,7 @@ json.github.sast.format:
         precision: $[(vuln.severityString matches "(Critical|Medium)") ? "high":"low" ]
         security-severity: $[{Critical:10.0,High:8.9,Medium:6.9,Low:3.9}.get(vuln.severityString)+'']
     result.fields:
-      ruleId: $[vuln.id+'']
+      ruleId: $[vuln.checkId+'']
       message: 
         text: $[vuln.category]
       level: $[(vuln.severityString matches "(Critical|High)") ? "warning":"note" ]
