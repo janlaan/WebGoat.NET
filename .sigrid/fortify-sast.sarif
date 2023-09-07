@@ -304,9 +304,9 @@
             "text" : "Storing a plain text password in a configuration file could result in a system compromise."
           },
           "help" : {
-            "text" : "Storing a plain text password in a configuration file allows anyone who can read the file access to the password-protected resource. Developers sometimes believe that they cannot defend the application from someone who has access to the configuration, but this attitude makes an attacker's job easier. Good password management guidelines require that a password never be stored in plain text.\n\nA password should never be stored in plain text. An administrator should be required to enter the password when the system starts. If that approach is impractical, a less secure but often adequate solution is to obfuscate the password and scatter the de-obfuscation material around the system so that an attacker has to obtain and correctly combine multiple system resources to decipher the password.\n\nMicrosoft(R) provides a tool that can be used in conjunction with the Windows Data Protection application programming interface (DPAPI) to protect sensitive application entries in configuration files [1].\n\nFor more information, see https://emea.fortify.com//redirect/Issues/ccbdb577-cbd3-48da-a240-2664871b3151"
+            "text" : "Storing a plain text password in a configuration file allows anyone who can read the file access to the password-protected resource. Developers sometimes believe that they cannot defend the application from someone who has access to the configuration, but this attitude makes an attacker's job easier. Good password management guidelines require that a password never be stored in plain text.\n\nA password should never be stored in plain text. An administrator should be required to enter the password when the system starts. If that approach is impractical, a less secure but often adequate solution is to obfuscate the password and scatter the de-obfuscation material around the system so that an attacker has to obtain and correctly combine multiple system resources to decipher the password.\n\nMicrosoft(R) provides a tool that can be used in conjunction with the Windows Data Protection application programming interface (DPAPI) to protect sensitive application entries in configuration files [1].\n\nFor more information, see https://emea.fortify.com//redirect/Issues/6a9e1114-15bb-48f3-8120-15d5d8041e67"
           },
-          "helpUri" : "https://emea.fortify.com//redirect/Issues/ccbdb577-cbd3-48da-a240-2664871b3151",
+          "helpUri" : "https://emea.fortify.com//redirect/Issues/6a9e1114-15bb-48f3-8120-15d5d8041e67",
           "properties" : {
             "tags" : [ "CWE-13", " CWE-260", " CWE-555" ],
             "precision" : "low",
@@ -340,9 +340,9 @@
             "text" : "Storing a plain text password in a configuration file could result in a system compromise."
           },
           "help" : {
-            "text" : "Storing a plain text password in a configuration file allows anyone who can read the file access to the password-protected resource. Developers sometimes believe that they cannot defend the application from someone who has access to the configuration, but this attitude makes an attacker's job easier. Good password management guidelines require that a password never be stored in plain text.\n\nA password should never be stored in plain text. An administrator should be required to enter the password when the system starts. If that approach is impractical, a less secure but often adequate solution is to obfuscate the password and scatter the de-obfuscation material around the system so that an attacker has to obtain and correctly combine multiple system resources to decipher the password.\n\nMicrosoft(R) provides a tool that can be used in conjunction with the Windows Data Protection application programming interface (DPAPI) to protect sensitive application entries in configuration files [1].\n\nFor more information, see https://emea.fortify.com//redirect/Issues/6a9e1114-15bb-48f3-8120-15d5d8041e67"
+            "text" : "Storing a plain text password in a configuration file allows anyone who can read the file access to the password-protected resource. Developers sometimes believe that they cannot defend the application from someone who has access to the configuration, but this attitude makes an attacker's job easier. Good password management guidelines require that a password never be stored in plain text.\n\nA password should never be stored in plain text. An administrator should be required to enter the password when the system starts. If that approach is impractical, a less secure but often adequate solution is to obfuscate the password and scatter the de-obfuscation material around the system so that an attacker has to obtain and correctly combine multiple system resources to decipher the password.\n\nMicrosoft(R) provides a tool that can be used in conjunction with the Windows Data Protection application programming interface (DPAPI) to protect sensitive application entries in configuration files [1].\n\nFor more information, see https://emea.fortify.com//redirect/Issues/ccbdb577-cbd3-48da-a240-2664871b3151"
           },
-          "helpUri" : "https://emea.fortify.com//redirect/Issues/6a9e1114-15bb-48f3-8120-15d5d8041e67",
+          "helpUri" : "https://emea.fortify.com//redirect/Issues/ccbdb577-cbd3-48da-a240-2664871b3151",
           "properties" : {
             "tags" : [ "CWE-13", " CWE-260", " CWE-555" ],
             "precision" : "low",
@@ -2343,7 +2343,7 @@
         "tags" : [ "CWE-13", " CWE-260", " CWE-555" ]
       },
       "partialFingerprints" : {
-        "issueInstanceId" : "8F528F2065EF96CE3E7D79EDBE1D52D7"
+        "issueInstanceId" : "8F528F2065EF96CE3E7D79EDBE1D52D9"
       },
       "locations" : [ {
         "physicalLocation" : {
@@ -2351,8 +2351,8 @@
             "uri" : "Web.config"
           },
           "region" : {
-            "startLine" : 58,
-            "endLine" : 58,
+            "startLine" : 60,
+            "endLine" : 60,
             "startColumn" : 1,
             "endColumn" : 80
           }
@@ -2363,14 +2363,14 @@
           "locations" : [ {
             "location" : {
               "message" : {
-                "text" : "Web.config:58"
+                "text" : "Web.config:60"
               },
               "physicalLocation" : {
                 "artifactLocation" : {
                   "uri" : "Web.config"
                 },
                 "region" : {
-                  "startLine" : 58
+                  "startLine" : 60
                 }
               }
             }
@@ -2431,7 +2431,7 @@
         "tags" : [ "CWE-13", " CWE-260", " CWE-555" ]
       },
       "partialFingerprints" : {
-        "issueInstanceId" : "8F528F2065EF96CE3E7D79EDBE1D52D9"
+        "issueInstanceId" : "8F528F2065EF96CE3E7D79EDBE1D52D7"
       },
       "locations" : [ {
         "physicalLocation" : {
@@ -2439,8 +2439,8 @@
             "uri" : "Web.config"
           },
           "region" : {
-            "startLine" : 60,
-            "endLine" : 60,
+            "startLine" : 58,
+            "endLine" : 58,
             "startColumn" : 1,
             "endColumn" : 80
           }
@@ -2451,14 +2451,14 @@
           "locations" : [ {
             "location" : {
               "message" : {
-                "text" : "Web.config:60"
+                "text" : "Web.config:58"
               },
               "physicalLocation" : {
                 "artifactLocation" : {
                   "uri" : "Web.config"
                 },
                 "region" : {
-                  "startLine" : 60
+                  "startLine" : 58
                 }
               }
             }
